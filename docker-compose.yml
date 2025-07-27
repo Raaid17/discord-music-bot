@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  discordbot:
+    build: .
+    container_name: discord-flask-bot
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
