@@ -3,8 +3,8 @@ services:
     build: .
     container_name: discord-music-bot
     restart: unless-stopped
-    ports:
-      - "5000:5000"
-    command: python bot.py
     environment:
       - DISCORD_TOKEN=${DISCORD_TOKEN}
+    working_dir: /app
+    command: python bot.py
+    network_mode: host
