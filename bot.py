@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 # Load .env file
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
+print(f"DISCORD_TOKEN is: {TOKEN}")
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -140,6 +141,8 @@ if __name__ == "__main__":
         flask_thread.start()
 
         loop.run_until_complete(bot.start(TOKEN))
+        print("Attempting to connect to Discord...")
+
 
     except KeyboardInterrupt:
         print("\n[!] Detected exit signal. Shutting down...")
