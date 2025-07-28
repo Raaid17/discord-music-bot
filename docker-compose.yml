@@ -1,15 +1,10 @@
-version: "3.8"
-
 services:
   discord-bot:
     build: .
     container_name: discord-music-bot
     restart: unless-stopped
-    env_file:
-      - .env
     ports:
-      - "5000:5000"  # expose Flask API
-    volumes:
-      - .:/app
-    working_dir: /app
+      - "5000:5000"
     command: python bot.py
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
